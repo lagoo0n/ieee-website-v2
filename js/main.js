@@ -28,9 +28,9 @@ document.addEventListener("DOMContentLoaded", function() {
                 <p>&copy; ${new Date().getFullYear()} IEEE @ Cal Poly SLO</p>
             </div>
             <div class="footer-right">
-                <a href="YOUR_INSTAGRAM_LINK" target="_blank"><i class="fa-brands fa-instagram"></i></a>
-                <a href="YOUR_DISCORD_LINK" target="_blank"><i class="fa-brands fa-discord"></i></a>
-                <a href="cards.html"><i class="fa-solid fa-calendar-days"></i></a>
+                <a href="https://www.instagram.com/calpolyieee/" target="_blank"><i class="fa-brands fa-instagram"></i></a>
+                <a href="https://discord.gg/xKUwHcuFQN" target="_blank"><i class="fa-brands fa-discord"></i></a>
+                <a href="https://ieeecalpoly.carrd.co/?utm_source=ig&utm_medium=social&utm_content=link_in_bio&fbclid=PAZXh0bgNhZW0CMTEAc3J0YwZhcHBfaWQMMjU2MjgxMDQwNTU4AAGnt-xPlXAal89hsZ6M2j5qRiMMZvO8z0blyeoqPN0aVZBTSRzKkQcbOIczxOA_aem_mZWKND-siLMBD6jXFc9kcA"><i class="fa-solid fa-calendar-days"></i></a>
             </div>
         </div>
     </footer>

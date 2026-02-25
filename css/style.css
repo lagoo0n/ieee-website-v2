@@ -1,0 +1,821 @@
+/* --- GLOBAL & RESET --- */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+html { scrollbar-gutter: stable; }
+
+body {
+    font-family: 'Inter', sans-serif;
+    background-color: #c4c9c1;
+    min-height: 100vh;
+    overscroll-behavior-y: none; 
+    color: black;
+
+    /* THIS PART STICKS THE FOOTER TO THE BOTTOM */
+    display: flex;
+    flex-direction: column;
+    margin: 0;
+}
+
+/* BACKGROUND BLOBS */
+.page-background {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 100%; 
+    height: 100%;
+    z-index: -1;
+    
+    /* This adds a 30% dark overlay so your white text stays readable */
+    background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
+                url('../campus.jpg'); /* <--- Make sure the name matches your file */
+    
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+}
+
+/* .blob {
+    position: absolute;
+    border-radius: 50%;
+    filter: blur(70px);
+    opacity: 0.8;
+}
+
+/* Desktop Blob 1: Lighter Green */
+/* .blob-1 {
+    width: 500px; height: 500px; /* Made smaller */
+/*    background: #39843f;
+/*    top: -50px; left: -50px;
+}
+
+/* .blob-2 {
+    width: 600px; height: 600px; /* Made smaller */
+/*    background: #2d6534;
+    top: 10%; right: -50px; /* Moved up to stay in view */
+/*} */ 
+
+/* --- HEADER & NAV --- */
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    /* Increased from 10px to 18px to give it that "quarter inch" more space */
+    padding: 18px 60px; 
+    background-color: #5b8054;
+    position: relative;
+    z-index: 1000;
+}
+
+.logo {
+    text-decoration: none;
+    color: white;
+    display: flex;
+    align-items: center;
+    font-weight: 900;
+    /* Bumped up slightly from 1.5rem to 1.75rem */
+    font-size: 1.75rem; 
+    letter-spacing: -1px;
+}
+
+.logo-img {
+    /* Bumped up from 30px to 36px */
+    height: 36px; 
+    margin-right: 12px;
+    filter: brightness(0) invert(1);
+}
+
+nav ul { 
+    display: flex; 
+    list-style: none; 
+    gap: 25px; 
+}
+
+nav a {
+    text-decoration: none;
+    color: white;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 0.8rem; /* Slightly larger text */
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    
+    /* Increased padding inside the curved box for a better look */
+    padding: 8px 20px; 
+    
+    border: 2px solid transparent;
+    border-radius: 10px; 
+    display: inline-block;
+    transition: all 0.3s ease;
+}
+
+/* --- THE HOVER STATE --- */
+nav a:hover {
+    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white box */
+    color: #ffffff;
+}
+
+/* HAMBURGER */
+.hamburger {
+    display: none;
+    flex-direction: column;
+    gap: 6px;
+    cursor: pointer;
+    z-index: 1001;
+}
+
+.hamburger div {
+    width: 30px; height: 3px;
+    background-color: white;
+    transition: 0.3s;
+}
+
+/* --- RESPONSIVE MOBILE FIXES --- */
+@media (max-width: 768px) {
+    header { padding: 15px 25px; }
+    .hamburger { display: flex; }
+
+    /* Keeps Gray Middle visible on Mobile by pushing blobs further out */
+    .blob-1 {
+        width: 100vw; height: 100vw;
+        top: -35%; left: -45%;
+        filter: blur(60px);
+    }
+
+    .blob-2 {
+        width: 100vw; height: 100vw;
+        bottom: -35%; right: -45%;
+        filter: blur(60px);
+    }
+
+    nav {
+        display: none;
+        position: absolute;
+        /* Positions the menu exactly at the bottom of the header bar */
+        top: 100%; 
+        right: 25px;
+        margin-top: 10px; /* Small gap so it doesn't touch the header */
+        
+        /* Matching your header color */
+        background: #5b8054; 
+        
+        width: 200px;
+        padding: 10px 0;
+        border-radius: 15px;
+        box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+        z-index: 1001;
+    }
+
+    nav.active { display: block; }
+    
+    nav ul { flex-direction: column; gap: 0; }
+    
+    nav a {
+        /* Matching the font you chose for the desktop links */
+        font-family: 'Inter', sans-serif;
+        font-weight: 900;
+        font-size: 0.85rem;
+        letter-spacing: 1px;
+        
+        border: none;
+        display: block;
+        padding: 15px 25px;
+        color: white;
+        transition: 0.2s;
+    }
+
+    nav a:hover { 
+        background-color: rgba(255, 255, 255, 0.1); 
+    }
+}
+
+/* --- HERO SECTION --- */
+.hero {
+    /* Reverted to 50vh as requested */
+    height: 50vh; 
+    min-height: 450px; /* Ensures it looks good on all screen heights */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    padding: 20px;
+    position: relative;
+}
+
+.hero h1 {
+    font-size: 6rem; /* Restored size */
+    font-weight: 900;
+    line-height: 0.9;
+    color: white;
+    margin: 0;
+}
+
+.hero .sub-heading {
+    font-family: 'Playfair Display', serif;
+    font-size: 1.8rem;
+    font-style: italic;
+    color: white;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-top: 10px;
+    margin-bottom: 40px; /* Added more space above the button */
+}
+
+/* --- THE JOIN BUTTON --- */
+.join-btn {
+    display: inline-block;
+    background: transparent; /* No background color */
+    border: 1px solid rgba(255, 255, 255, 0.8); /* Thin white border */
+    color: white;
+    padding: 15px 40px; /* Back to original size */
+    font-family: 'IBM Plex Mono', monospace;
+    font-size: 0.9rem;
+    text-decoration: none;
+    text-transform: uppercase;
+    letter-spacing: 3px;
+    transition: all 0.3s ease;
+    border-radius: 0; /* Keeps it as a sharp rectangle for that technical look */
+}
+
+.join-btn:hover {
+    background: white; /* Fills in on hover */
+    color: #5b8054;    /* Text turns green to match the header */
+    transform: translateY(-3px); /* Subtle lift */
+    box-shadow: 0 10px 20px rgba(0,0,0,0.1);
+}
+
+.join-btn:hover {
+    background: white;
+    color: #39843f;
+}
+
+@media (max-width: 768px) {
+    .hero h1 { font-size: 5rem; }
+    .hero .sub-heading { font-size: 1.2rem; }
+}
+
+/* --- OFFICERS SECTION --- */
+.officers-section {
+    background-color: #ececec;
+    padding: 60px 10% 100px; 
+    text-align: center;
+    min-height: 100vh;
+}
+
+.officers-container {
+    max-width: 960px; 
+    margin: 0 auto;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px; 
+}
+
+.officer-card {
+    background-color: #5b8054;
+    width: 210px; 
+    border-radius: 15px;
+    padding: 8px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+}
+
+.officer-img-wrapper { 
+    width: 100%; 
+    height: 210px;       
+    border-radius: 10px; 
+    overflow: hidden; 
+    margin-bottom: 8px;  
+    background-color: #4a6341; 
+}
+
+.officer-img-wrapper img { 
+    width: 100%; 
+    height: 100%; 
+    object-fit: cover; 
+}
+
+.officer-info {
+    padding-bottom: 5px;
+}
+
+.officer-info h3 { 
+    font-weight: 900; 
+    font-size: 18px;     
+    margin-bottom: 2px; 
+    color: #ffffff; 
+}
+
+.officer-info p { 
+    font-size: 13px; 
+    color: #ffffff; 
+    opacity: 0.9; 
+}
+
+/* --- OFFICERS HEADER (UPDATED FOR CENTERED LINES) --- */
+.officers-header {
+    margin-bottom: 60px; 
+    text-align: center;
+    max-width: 1200px; /* Wider than the cards to allow lines to stretch */
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.big-label {
+    display: block;
+    font-family: 'Inter', sans-serif;
+    font-weight: 900;
+    font-size: 50px;      
+    color: #1a1a1a;        
+    line-height: 1;
+    letter-spacing: 0px; 
+    margin-bottom: 10px;
+    opacity: 0.9;
+}
+
+/* This forces the line-text-line into one horizontal row */
+.officer-line-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 25px;
+    width: 100%;
+    margin-bottom: 10px;
+}
+
+.officer-line-row h2 {
+    font-size: 28px;
+    font-weight: 900;
+    color: #5b8054;
+    margin: 0;
+    white-space: nowrap;
+    letter-spacing: -1px;
+}
+
+.officer-line-row .line {
+    flex: 1;             /* These grow to fill the left and right sides */
+    height: 1px;
+    background-color: #5b8054; 
+}
+
+.officers-header .subtitle {
+    font-family: 'Playfair Display', serif;
+    font-style: italic;
+    font-size: 18px;
+    color: #5b8054; /* Green to match the theme */
+    margin-top: 5px;
+}
+
+/* --- MOBILE 2-COLUMN LAYOUT --- */
+@media (max-width: 768px) {
+    .officers-section {
+        padding: 40px 15px; 
+    }
+
+    .officers-container {
+        display: grid;
+        grid-template-columns: 1fr 1fr; 
+        gap: 15px;
+        max-width: 100%;
+    }
+
+    .officer-card {
+        width: 100%;
+        height: auto; 
+        padding: 8px; 
+        border-radius: 12px;
+    }
+
+    .officer-img-wrapper {
+        width: 100%;
+        aspect-ratio: 1 / 1; 
+        height: auto; 
+        margin-bottom: 8px;
+    }
+
+    .officer-img-wrapper img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+    }
+
+    .big-label {
+        font-size: 45px;   
+        letter-spacing: -2px;
+    }
+
+    .officer-line-row h2 { font-size: 20px; }
+    
+    /* Hide lines on small screens to avoid clutter */
+    .officer-line-row .line { display: none; } 
+
+    .officer-info h3 {
+        font-size: 16px;
+        line-height: 1.2;
+        margin-bottom: 2px;
+    }
+
+    .officer-info p {
+        font-size: 12px;
+        margin: 0;
+    }
+}
+
+/* --- WORKSHOP SECTION ADJUSTMENTS --- */
+.workshop-wrapper {
+    background-color: #ececec;
+    width: 100%;
+    /* Change this from 100vh to auto */
+    min-height: auto; 
+    margin: 0;
+    padding: 50px 18%; 
+    box-sizing: border-box;
+    /* This ensures that if you have multiple workshops, they don't touch */
+    display: flex;
+    flex-direction: column;
+    gap: 10px; /* This controls the space between the first workshop and the next */
+}
+
+/* NEW HEADER STRUCTURE */
+.workshop-header {
+    width: 100%;
+    margin-top: 0; 
+    margin-bottom: 10px;
+}
+
+/* 1. The "Workshop Recap" top bar with the line */
+.recap-top-bar {
+    display: flex;
+    align-items: center;
+    gap: 15px;
+    margin-bottom: 25px;
+}
+
+.recap-top-bar span {
+    font-family: 'Inter', sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    letter-spacing: 1.2px;
+    color: #5b8054; /* Green accent */
+    white-space: nowrap;
+}
+
+.header-line {
+    flex: 1;
+    height: 1px;
+    background-color: #b0b0b0; /* Light gray line */
+}
+
+/* 2. The Main Title */
+.workshop-header h2 {
+    font-size: 48px; /* Slightly bigger to match the new style */
+    font-weight: 900;
+    color: #1a1a1a;
+    letter-spacing: -1.5px;
+    margin: 0;
+    line-height: 1.1;
+}
+
+.workshop-header .slash {
+    color: #5b8054; /* Green slash */
+    margin-left: 2px;
+}
+
+/* 3. The Date and Description */
+.workshop-date {
+    font-size: 18px;
+    color: #5b8054;
+    margin-top: 8px;
+    margin-bottom: 20px; /* Space before the description starts */
+    font-weight: 600;
+    display: block;
+}
+
+.workshop-header p.description {
+    font-style: italic;
+    line-height: 1.6;
+    font-size: 15px; 
+    color: #333;
+    width: 100%;
+}
+
+/* KEEPING YOUR IMAGE & BOX STYLES */
+.workshop-content {
+    display: flex;
+    gap: 25px; /* Space between the two pictures */
+    width: 100%;
+}
+
+.workshop-image {
+    flex: 1; /* This ensures both images take up exactly 50% of the row */
+}
+
+.workshop-image img {
+    width: 100%;
+    height: 340px; /* Keeping the smaller height we set earlier */
+    object-fit: cover; /* Ensures photos aren't stretched */
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+    display: block;
+}
+
+/* --- MOBILE WORKSHOP FIXES --- */
+@media (max-width: 768px) {
+    .workshop-wrapper { padding: 40px 20px; }
+    .workshop-header h2 { font-size: 32px; }
+    .workshop-header p.description { font-size: 14px; }
+    .workshop-content {
+        flex-direction: column; /* Stacks the two images on top of each other on phones */
+        gap: 20px;
+    }
+    
+    .workshop-image img {
+        height: 250px; /* Slightly shorter for mobile screens */
+    }
+}
+
+/* --- ABOUT US: FULL WIDTH & STACKED --- */
+.about-section {
+    width: 100%;
+    background-color: #f2f2f2; 
+    padding: 80px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.about-container {
+    width: 90%; 
+    max-width: 1200px; 
+    display: flex;
+    flex-direction: row; /* Side-by-side by default */
+    align-items: center;  /* Vertically centers text and image */
+    gap: 60px;           /* Space between text and image */
+}
+
+.about-text {
+    flex: 1;             /* Takes up 50% of the width */
+    text-align: left;    /* Align text to the left on desktop */
+}
+
+.about-text h2 {
+    font-size: 64px;
+    font-weight: 900;
+    margin-bottom: 25px;
+    letter-spacing: -2px;
+    line-height: 1.1;
+    color: #000;
+}
+
+.about-text p {
+    font-size: 16px;
+    line-height: 1.6;
+    margin-bottom: 20px;
+    color: #333;
+}
+
+.about-image {
+    flex: 1;             /* Takes up 50% of the width */
+}
+
+.about-image img {
+    width: 100%;
+    height: auto;
+    border-radius: 15px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.1);
+    display: block;
+}
+
+/* --- MOBILE ADJUSTMENTS --- */
+@media (max-width: 992px) {
+    .about-container {
+        flex-direction: column; /* Stacks image below text */
+        text-align: center;     /* Centers text for better mobile look */
+        gap: 40px;
+    }
+
+    .about-text {
+        text-align: center;     /* Center the header and paragraphs on mobile */
+    }
+
+    .about-text h2 {
+        font-size: 45px;
+    }
+
+    .about-text p {
+        font-size: 14px;
+        text-align: left;       /* Keeps paragraphs readable on mobile */
+    }
+
+    .about-image {
+        width: 100%;            /* Image takes full width on mobile */
+    }
+}
+
+/* --- FOOTER STYLES --- */
+footer {
+    width: 100%;
+    background-color: #c4c9c1; /* Matching your background gray-green */
+    padding: 30px 60px;
+    margin-top: auto; /* Pushes footer to bottom of the page */
+}
+
+.footer-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between; /* This pushes text to left and icons to right */
+    align-items: center;
+}
+
+.footer-left p {
+    font-family: 'Inter', sans-serif;
+    font-size: 16px;
+    font-weight: 700;
+    color: #1a1a1a;
+}
+
+.footer-right {
+    display: flex;
+    gap: 20px; /* Space between icons */
+}
+
+.footer-right a {
+    color: #1a1a1a; /* Fixes the blue icon problem */
+    font-size: 24px;
+    text-decoration: none;
+    transition: 0.3s;
+}
+
+.footer-right a:hover {
+    color: #5b8054; /* Icons turn green on hover */
+    transform: scale(1.1);
+}
+
+/* --- FOOTER MOBILE --- */
+@media (max-width: 768px) {
+    footer {
+        padding: 30px 20px;
+    }
+    .footer-container {
+        flex-direction: column; /* Stacks them on top of each other on phones */
+        gap: 15px;
+        text-align: center;
+    }
+}
+
+/* --- FOOTER MOBILE --- */
+@media (max-width: 768px) {
+    footer {
+        padding: 40px 20px;
+    }
+    
+    .footer-container {
+        flex-direction: column;
+        gap: 25px;
+        text-align: center;
+    }
+
+    .footer-left p {
+        font-size: 16px; /* Slightly smaller for mobile screens */
+    }
+
+    .footer-right a {
+        font-size: 34px; /* Icons look better even larger on touch screens */
+    }
+}
+
+/* --- EVENT HIGHLIGHTS SECTION --- */
+.events-section {
+    background-color: #f2f2f2; 
+    padding: 55px 20px;
+    text-align: center;
+}
+
+.events-header h2 {
+    font-size: 60px;
+    font-weight: 900;
+    color: #3d5a37;
+    margin-bottom: 15px;
+    letter-spacing: -1px;
+}
+
+.events-header p {
+    font-size: 16px;
+    color: #555;
+    margin-bottom: 60px;
+}
+
+/* Container for the Arrows and the Cards */
+.slider-wrapper {
+    position: relative;
+    max-width: 1400px;
+    margin: 0 auto;
+    display: flex;
+    align-items: center;
+}
+
+.events-container {
+    display: flex;
+    gap: 20px;
+    overflow-x: auto; /* This enables sliding */
+    scroll-snap-type: x mandatory; /* Makes cards "snap" into place */
+    scroll-behavior: smooth;
+    padding: 20px 5px;
+    scrollbar-width: none; /* Hides scrollbar on Firefox */
+    width: 100%;
+}
+
+/* Hides scrollbar on Chrome/Safari */
+.events-container::-webkit-scrollbar {
+    display: none;
+}
+
+.event-card {
+    background: white;
+    flex: 0 0 calc(25% - 15px); /* Desktop: 4 cards */
+    scroll-snap-align: start;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+    transition: transform 0.3s ease;
+    text-align: left;
+}
+
+.event-card:hover {
+    transform: translateY(-5px);
+}
+
+.event-image img {
+    width: 100%;
+    height: 250px;
+    object-fit: cover;
+}
+
+.event-info {
+    padding: 25px;
+}
+
+.event-info h3 {
+    font-size: 22px;
+    font-weight: 900;
+    color: #1a1a1a;
+    margin-bottom: 5px;
+}
+
+.event-info p {
+    font-size: 16px;
+    color: #888;
+}
+
+/* --- SLIDER BUTTONS --- */
+.nav-btn {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    background: white;
+    border: none;
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.1);
+    cursor: pointer;
+    z-index: 10;
+    font-size: 18px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: 0.3s;
+}
+
+.nav-btn:hover {
+    background: #5b8054;
+    color: white;
+}
+
+.prev-btn { left: -22px; }
+.next-btn { right: -22px; }
+
+/* --- RESPONSIVE BREAKPOINTS --- */
+
+/* Tablet/Medium: Showcase 2 cards */
+@media (max-width: 1024px) {
+    .event-card {
+        flex: 0 0 calc(50% - 10px); 
+    }
+    .prev-btn { left: -10px; }
+    .next-btn { right: -10px; }
+}
+
+/* Mobile: Showcase 1 card and hide arrows */
+@media (max-width: 768px) {
+    .events-header h2 { font-size: 38px; }
+    
+    .event-card {
+        flex: 0 0 85%; /* Shows 1 card and a "peek" of the next one */
+    }
+    
+    .nav-btn {
+        display: none; /* Mobile users swipe with fingers */
+    }
+}

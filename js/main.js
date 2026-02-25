@@ -3,7 +3,7 @@ document.addEventListener("DOMContentLoaded", function() {
     const headerHTML = `
     <header>
         <a href="index.html" class="logo">
-            <img src="actual_logo.png" alt="IEEE Logo" class="logo-img">
+            <img src="assets/images/actual_logo.png" alt="IEEE Logo" class="logo-img">
             IEEE
         </a>
         <div class="hamburger" id="hamburger">

@@ -26,7 +26,7 @@ body {
     
     /* This adds a 30% dark overlay so your white text stays readable */
     background: linear-gradient(rgba(0, 0, 0, 0.3), rgba(0, 0, 0, 0.3)), 
-                url('../campus.jpg'); /* <--- Make sure the name matches your file */
+                url('../assets/images/campus.jpg'); /* <--- Make sure the name matches your file */
     
     background-size: cover;
     background-position: center;

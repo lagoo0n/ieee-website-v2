@@ -13,7 +13,7 @@ document.addEventListener("DOMContentLoaded", function() {
             <ul>
                 <li><a href="officers.html">OFFICERS</a></li>
                 <li><a href="workshop.html">WORKSHOP</a></li>
-                <li><a href="#">SPONSOR</a></li>
+                <li><a href="sponser.html">SPONSOR</a></li>
             </ul>
         </nav>
     </header>

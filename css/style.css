@@ -954,11 +954,26 @@ footer {
 
 @media (max-width: 768px) {
     .sponsor-wrapper { padding: 40px 20px; }
-    .sponsor-line-row .line { display: none; }
     
     /* Boxes take full width on small phones */
     .stat-box, .partner-card { 
         width: 100%; 
         height: 160px; 
+    }
+
+    .big-label {
+        font-size: 40px; 
+        letter-spacing: -1px;
+    }
+
+    /* Shrink the "SUPPORT IEEE" text */
+    .sponsor-line-row h2 {
+        font-size: 18px; 
+        white-space: normal; /* Allows it to wrap if the screen is very tiny */
+    }
+
+    /* Remove the lines completely on mobile */
+    .sponsor-line-row .line {
+        display: none;
     }
 }

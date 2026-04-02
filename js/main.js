@@ -1,4 +1,29 @@
 document.addEventListener("DOMContentLoaded", function() {
+    // Keep favicon configuration centralized for all pages that load main.js.
+    const faviconPath = "assets/images/favicon.png";
+    const upsertHeadLink = (selector, attrs) => {
+        let link = document.head.querySelector(selector);
+        if (!link) {
+            link = document.createElement("link");
+            document.head.appendChild(link);
+        }
+
+        Object.entries(attrs).forEach(([key, value]) => {
+            link.setAttribute(key, value);
+        });
+    };
+
+    upsertHeadLink('link[rel="icon"]', {
+        rel: "icon",
+        type: "image/png",
+        href: faviconPath
+    });
+
+    upsertHeadLink('link[rel="apple-touch-icon"]', {
+        rel: "apple-touch-icon",
+        href: faviconPath
+    });
+
     // 1. INJECT HEADER
     const headerHTML = `
     <header>

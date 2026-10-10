@@ -203,13 +203,9 @@ nav a:focus-visible::after {
     nav a:hover { 
         background-color: rgba(255, 255, 255, 0.1); 
     }
-    .officer-email {
-    opacity: 1;
-    transform: translate(-50%, 0); 
-    padding: 8px;
-    font-size: 0.7rem;
+
 }
-}
+
 
 /* --- HERO SECTION --- */
 .hero {
@@ -495,6 +491,23 @@ nav a:focus-visible::after {
         font-size: 12px;
         margin: 0;
     }
+    .officer-email {
+    position: static;
+    left: auto;
+    bottom: auto;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    width: 100%;
+    margin-top: 10px;
+    padding: 8px;
+
+    opacity: 1;
+    transform: none;
+    text-align: center;
+}
 }
 
 /* --- WORKSHOP SECTION ADJUSTMENTS --- */

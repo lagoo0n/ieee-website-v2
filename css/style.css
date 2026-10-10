@@ -507,6 +507,9 @@ nav a:focus-visible::after {
     opacity: 1;
     transform: none;
     text-align: center;
+    white-space: normal;
+    line-height: 1.2;
+    min-width: 0;
 }
 }
 

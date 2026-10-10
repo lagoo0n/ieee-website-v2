@@ -60,7 +60,7 @@ header {
     align-items: center;
     /* Increased from 10px to 18px to give it that "quarter inch" more space */
     padding: 18px 60px; 
-    background-color: #5b8054;
+    background-color: #154734;
     position: relative;
     z-index: 1000;
 }
@@ -89,29 +89,47 @@ nav ul {
     gap: 25px; 
 }
 
+/* underlining animation for header */
 nav a {
+    position: relative;
+    display: block;
+    padding: 10px 12px 14px;
+    color: rgba(255, 255, 255, 0.82);
+    font-size: 0.72rem;
+    font-weight: 700;
+    letter-spacing: 0.9px;
     text-decoration: none;
-    color: white;
-    font-family: 'Inter', sans-serif;
-    font-weight: 900;
-    font-size: 0.8rem; /* Slightly larger text */
-    text-transform: uppercase;
-    letter-spacing: 1px;
-    
-    /* Increased padding inside the curved box for a better look */
-    padding: 8px 20px; 
-    
-    border: 2px solid transparent;
-    border-radius: 10px; 
-    display: inline-block;
-    transition: all 0.3s ease;
+    border: 0;
+    border-radius: 0;
+    background: transparent;
+    transition: color 0.25s ease;
 }
 
-/* --- THE HOVER STATE --- */
-nav a:hover {
-    background-color: rgba(255, 255, 255, 0.2); /* Semi-transparent white box */
-    color: #ffffff;
+nav a::after {
+    content: "";
+    position: absolute;
+    right: 12px;
+    bottom: 7px;
+    left: 12px;
+    height: 2px;
+    background: white;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform 0.3s ease;
 }
+
+nav a:hover,
+nav a:focus-visible {
+    color: white;
+    background: transparent;
+}
+
+nav a:hover::after,
+nav a:focus-visible::after {
+    transform: scaleX(1);
+    transform-origin: left;
+}
+
 
 /* HAMBURGER */
 .hamburger {
@@ -155,7 +173,7 @@ nav a:hover {
         margin-top: 10px; /* Small gap so it doesn't touch the header */
         
         /* Matching your header color */
-        background: #5b8054; 
+        background: #154734; 
         
         width: 200px;
         padding: 10px 0;
@@ -185,6 +203,12 @@ nav a:hover {
     nav a:hover { 
         background-color: rgba(255, 255, 255, 0.1); 
     }
+    .officer-email {
+    opacity: 1;
+    transform: translate(-50%, 0); 
+    padding: 8px;
+    font-size: 0.7rem;
+}
 }
 
 /* --- HERO SECTION --- */
@@ -238,7 +262,7 @@ nav a:hover {
 
 .join-btn:hover {
     background: white; /* Fills in on hover */
-    color: #5b8054;    /* Text turns green to match the header */
+    color: #154734;    /* Text turns green to match the header */
     transform: translateY(-3px); /* Subtle lift */
     box-shadow: 0 10px 20px rgba(0,0,0,0.1);
 }
@@ -254,6 +278,57 @@ nav a:hover {
 }
 
 /* --- OFFICERS SECTION --- */
+.officer-card {
+    position: relative;
+    overflow: hidden;
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.officer-card:hover,
+
+.officer-card:focus-within {
+    transform: translateY(-6px);
+    box-shadow: 0 16px 35px rgba(0, 0, 0, 0.2);
+}
+
+.officer-img-wrapper {
+    position: relative;
+}
+
+.officer-img-wrapper img {
+    transition: transform 0.35s ease;
+}
+
+.officer-card:hover .officer-img-wrapper img,
+.officer-card:focus-within .officer-img-wrapper img {
+    transform: scale(1.05);
+}
+
+.officer-email {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+
+    width: 100%;
+    margin-top: 10px;
+    padding: 10px 12px;
+
+    border-radius: 999px;
+    background: white;
+    color: #154734;
+
+    font-size: 0.7rem;
+    font-weight: 700;
+    text-decoration: none;
+    transition: background 0.2s ease, transform 0.2s ease;
+}
+
+.officer-email:hover,
+.officer-email:focus-visible {
+    background: #d9ead3;
+    transform: translateY(-2px);
+}
 .officers-section {
     background-color: #ececec;
     padding: 60px 10% 100px; 
@@ -262,7 +337,7 @@ nav a:hover {
 }
 
 .officers-container {
-    max-width: 960px; 
+    max-width: 1170px; 
     margin: 0 auto;
     display: flex;
     flex-wrap: wrap;
@@ -271,8 +346,8 @@ nav a:hover {
 }
 
 .officer-card {
-    background-color: #5b8054;
-    width: 210px; 
+    background-color: #154734;
+    width: 270px; 
     border-radius: 15px;
     padding: 8px;
     display: flex;
@@ -283,11 +358,11 @@ nav a:hover {
 
 .officer-img-wrapper { 
     width: 100%; 
-    height: 210px;       
+    height: 270px;       
     border-radius: 10px; 
     overflow: hidden; 
     margin-bottom: 8px;  
-    background-color: #4a6341; 
+    background-color: #154734; 
 }
 
 .officer-img-wrapper img { 
@@ -347,7 +422,7 @@ nav a:hover {
 .officer-line-row h2 {
     font-size: 28px;
     font-weight: 900;
-    color: #5b8054;
+    color: #154734;
     margin: 0;
     white-space: nowrap;
     letter-spacing: -1px;
@@ -356,14 +431,14 @@ nav a:hover {
 .officer-line-row .line {
     flex: 1;             /* These grow to fill the left and right sides */
     height: 1px;
-    background-color: #5b8054; 
+    background-color: #154734; 
 }
 
 .officers-header .subtitle {
     font-family: 'Playfair Display', serif;
     font-style: italic;
     font-size: 18px;
-    color: #5b8054; /* Green to match the theme */
+    color: #154734; /* Green to match the theme */
     margin-top: 5px;
 }
 
@@ -457,7 +532,7 @@ nav a:hover {
     font-size: 13px;
     font-weight: 700;
     letter-spacing: 1.2px;
-    color: #5b8054; /* Green accent */
+    color: #154734; /* Green accent */
     white-space: nowrap;
 }
 
@@ -478,14 +553,14 @@ nav a:hover {
 }
 
 .workshop-header .slash {
-    color: #5b8054; /* Green slash */
+    color: #154734; /* Green slash */
     margin-left: 2px;
 }
 
 /* 3. The Date and Description */
 .workshop-date {
     font-size: 18px;
-    color: #5b8054;
+    color: #154734;
     margin-top: 8px;
     margin-bottom: 20px; /* Space before the description starts */
     font-weight: 600;
@@ -648,7 +723,7 @@ footer {
 }
 
 .footer-right a:hover {
-    color: #5b8054; /* Icons turn green on hover */
+    color: #154734; /* Icons turn green on hover */
     transform: scale(1.1);
 }
 
@@ -789,7 +864,7 @@ footer {
 }
 
 .nav-btn:hover {
-    background: #5b8054;
+    background: #154734;
     color: white;
 }
 
@@ -847,7 +922,7 @@ footer {
 .sponsor-line-row h2 {
     font-size: 28px;
     font-weight: 900;
-    color: #5b8054;
+    color: #154734;
     white-space: nowrap;
     letter-spacing: 1px;
     margin: 0;
@@ -856,7 +931,7 @@ footer {
 .sponsor-line-row .line {
     flex: 1;
     height: 1px;
-    background-color: #5b8054;
+    background-color: #154734;
 }
 
 .intro-text {
@@ -977,3 +1052,19 @@ footer {
         display: none;
     }
 }
+
+/* drop down option for events*/
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f9f9f9;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+

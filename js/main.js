@@ -37,7 +37,8 @@ document.addEventListener("DOMContentLoaded", function() {
         <nav id="nav-menu">
             <ul>
                 <li><a href="officers.html">OFFICERS</a></li>
-                <li><a href="workshop.html">WORKSHOP</a></li>
+                <li><a href ="events.html">EVENTS</a></li>
+                <li><a href="workshop.html">WORKSHOPS</a></li>
                 <li><a href="sponser.html">SPONSOR</a></li>
             </ul>
         </nav>

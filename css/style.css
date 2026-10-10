@@ -510,6 +510,7 @@ nav a:focus-visible::after {
     white-space: normal;
     line-height: 1.2;
     min-width: 0;
+    overflow-wrap: anywhere;
 }
 }
 

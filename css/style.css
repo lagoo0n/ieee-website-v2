@@ -1070,18 +1070,122 @@ footer {
     }
 }
 
-/* drop down option for events*/
-.dropdown {
+/*EVENt PAGE timeline*/
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body {
+  background-color: #f8fafc;
+  color: #0b0f15;
+}
+
+.timeline-section {
+  padding: 60px 0px; /* Removed horizontal padding */
+  min-height: 100vh;
+  display: block; /* Changes layout from center-flex to normal block alignment */
+}
+
+.timeline-container {
+  max-width: 700px;
+  width: 100%;
   position: relative;
-  display: inline-block;
-}
+  margin-left: 0; 
+  margin-right: auto;
+  
+  /* Padding creates the exact breathing room needed for the dots on the left edge */
+  padding-left: 40px; 
+  padding-right: 20px;  }
 
-.dropdown-content {
-  display: none;
+
+/* Vertical line pinned to the left */
+.timeline-line {
   position: absolute;
-  background-color: #f9f9f9;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px rgba(0,0,0,0.2);
-  z-index: 1;
+  width: 4px;
+  background-color: #cbd5e1;
+  top: 0;
+  bottom: 0;
+  left: 16px; /* Shifted slightly to match the layout's new left-flush position */
 }
 
+/* Individual item spacing */
+.timeline-item {
+  position: relative;
+  margin-bottom: 40px;
+  opacity: 0; /* Hidden before JS triggers */
+  transform: translateY(30px); /* Slides slightly up from bottom */
+  transition: all 0.6s cubic-bezier(0.25, 1, 0.5, 1);
+}
+
+/* Activated state via JavaScript */
+.timeline-item.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Interactive nodes on the line */
+.timeline-dot {
+    position: absolute;
+    width: 16px;
+    height: 16px;
+    background-color: white;
+    border: 4px solid #cbd5e1;
+    border-radius: 50%;
+    
+    /* FIX: This aligns the dot center precisely with your line path */
+    left: -30px; 
+    
+    top: 26px;
+    z-index: 2;
+    transition: all 0.4s ease;
+}
+
+/* expand slightly*/
+.timeline-item.active .timeline-dot {
+  border-color: #24a464;
+  background-color: #1fa553;
+  transform: scale(1.1);
+}
+
+/* Timeline text block design */
+.timeline-content {
+  background-color: #ffffff;
+  padding: 24px;
+  border-radius: 12px;
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.05), 0 2px 4px -2px rgba(0, 0, 0, 0.05);
+  border: 1px solid #e2e8f0;
+}
+
+.date {
+  display: inline-block;
+  color: #1a8b4d;
+  font-weight: 600;
+  font-size: 0.875rem;
+  margin-bottom: 6px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.timeline-content h3 {
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: 8px;
+  color: #0f172a;
+}
+
+.timeline-content p {
+  line-height: 1.6;
+  color: #2e7c4c;
+}
+
+.upcomingevents-header {
+    margin-bottom: 60px; 
+    text-align: center;
+    max-width: 1200px; /* Wider than the cards to allow lines to stretch */
+    margin-left: auto;
+    margin-right: auto;
+}

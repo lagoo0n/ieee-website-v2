@@ -92,3 +92,27 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 });
+
+// timeline for events
+document.addEventListener("DOMContentLoaded", () => {
+  const timelineItems = document.querySelectorAll(".timeline-item");
+
+  const observerOptions = {
+    root: null, 
+    threshold: 0.1, // Triggers when 10% of the card is visible
+    rootMargin: "0px 0px -60px 0px"
+  };
+
+  const timelineObserver = new IntersectionObserver((entries, observer) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add("active");
+        observer.unobserve(entry.target); // Keeps it active once visible
+      }
+    });
+  }, observerOptions);
+
+  timelineItems.forEach(item => {
+    timelineObserver.observe(item);
+  });
+});

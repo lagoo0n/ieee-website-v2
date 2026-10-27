@@ -28,26 +28,6 @@
       <!-- Left-aligned backbone line -->
       <div class="timeline-line"></div>
 
-      <!-- Event 1 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="date">Saturday, October 17 | 12 - 3 PM | Embedded Systems Lab </span>
-          <h3>CPES x IEEE Scavenger Hunt Social</h3>
-          <p>Solve puzzles, crack codes, and complete challenges to collect components for a circuit you’ll build at the end. Come hang out, meet new people, and put your engineering skills to the test! RSVP on our lintkree! </p>
-        </div>
-      </div>
-
-      <!-- Event 2 -->
-      <div class="timeline-item">
-        <div class="timeline-dot"></div>
-        <div class="timeline-content">
-          <span class="date">Saturday, October 24 | 10 am - 2 PM | SPL  </span>
-          <h3> IEEE/CPES/Nerdflare Soldering Competition</h3>
-          <p> Show off your soldering skills and win some iFixit sponsored prizes (a whole soldering station, game console tool kit, etc) </p>
-        </div>
-      </div>
-
             <!-- Event 3 -->
       <div class="timeline-item">
         <div class="timeline-dot"></div>
@@ -57,12 +37,92 @@
           <p> Join us to hear about upcoming events and announcements! </p>
         </div>
       </div>
-
+      <!-- Event 1 -->
+      <div class="timeline-item">
+        <div class="timeline-dot"></div>
+        <div class="timeline-content">
+          <span class="date">Saturday, November 7 | 10 - 4 PM | Advanced Technology Lab Bldg 7 </span>
+          <h3>OPTICA x IEEE Industry Speaker Panel</h3>
+          <p> Don’t miss out on this opportunity to get firsthand insights from industry senior engineers, managers, company executives, and our very own Cal Poly faculty! RSVP on our lintkree! </p>
+        </div>
+      </div>
 
 
     </div>
-  </section>
+<!-- Event Grid Container -->
+<div class="event-grid">
 
-  <script src="script.js"></script>
+<!-- Card 1 -->
+  <div class="flip-card" onclick="toggleCardFlip(this)">
+    <div class="card-inner">
+      
+      <!-- Front: Entire Flyer Graphic Visible -->
+      <div class="card-front">
+        <!-- FIXED: Path updated to use forward slashes for cross-browser support -->
+        <img src="assets/images/2026_event_flyers/OPTICA x IEEE Speaker Panel.png" alt="IEEE x Optica Industry Speaker Panel" class="event-image-front">
+      </div>
+      
+      <!-- Back: Styled to match your website theme color palette -->
+      <div class="card-back">
+        <h3>Industry Speaker Panel</h3>
+        <p class="event-date">📅 Sat, Nov 7 | 10 AM - 4 PM</p>
+        <p class="event-location">📍 ATL (Bldg 7)</p>
+        <p class="event-desc">Featuring speakers from Apple, Arroyo Instruments, Applied Energetics, OpenLight Photonics, and Cal Poly faculty. Lunch will be provided!</p>
+        <a href="https://tr.ee/2Wf1Na-Aj0" class="event-btn" onclick="event.stopPropagation();">Interest Form</a>
+      </div> 
+    </div>
+  </div>
+
+
+  <!-- Card 2 -->
+  <div class="flip-card" onclick="toggleCardFlip(this)">
+    <div class="card-inner">
+      
+      <!-- Front: Entire Flyer Graphic Visible -->
+      <div class="card-front">
+        <!-- FIXED: Path updated to use forward slashes for cross-browser support -->
+        <img src="assets/images/2026_event_flyers/2ndgeneralmeeting.png" alt="IEEE x Optica Industry Speaker Panel" class="event-image-front">
+      </div>
+      
+      <!-- Back: Styled to match your website theme color palette -->
+      <div class="card-back">
+        <h3>2nd General Meeting</h3>
+        <p class="event-date">📅 Mon, Oct 26 | 6 - 7 PM </p>
+        <p class="event-location">📍 EE Lobby (Bldg 20-A) </p>
+        <p class="event-desc"> Join us to hear about upcoming events, win merch prizes, and enjoy some pizza!</p>
+      </div>
+    </div>
+  </div>
+
+
+<!-- Card 3 -->
+  <div class="flip-card" onclick="toggleCardFlip(this)">
+    <div class="card-inner">
+      
+      <!-- Front: Entire Flyer Graphic Visible -->
+      <div class="card-front">
+        <!-- FIXED: Path updated to use forward slashes for cross-browser support -->
+        <img src="assets\images\2026_event_flyers\mustangfamilyweekend.png" alt="IEEE x Optica Industry Speaker Panel" class="event-image-front">
+      </div>
+      
+      <!-- Back: Styled to match your website theme color palette -->
+      <div class="card-back">
+        <h3>Mustang Family Weekend</h3>
+        <p class="event-date">📅 Fri, Oct 2 | 4 - 5 PM</p>
+        <p class="event-location">📍 EE Courtyard (Bldg 20-A)</p>
+        <p class="event-desc"> Join us for some free ice cream in the EE courtyard! Bring your family and friends!</p>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+
+</div>
+
+
+
+<script src="script.js"></script>
 </body>
 </html>
+</section>

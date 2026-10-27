@@ -116,3 +116,15 @@ document.addEventListener("DOMContentLoaded", () => {
     timelineObserver.observe(item);
   });
 });
+
+// 4. INTERACTIVE CARD FLIP LOGIC
+/**
+ * Toggles the 3D card layout rotation transformation matrix configuration.
+ * Triggers cleanly via inline onclick event bindings attached directly onto card markup wrappers.
+ * @param {HTMLElement} card - The DOM container execution point layer to process.
+ */
+function toggleCardFlip(card) {
+    if (card && card.classList) {
+        card.classList.toggle('flipped');
+    }
+}
